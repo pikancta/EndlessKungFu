@@ -1,0 +1,33 @@
+using UnityEngine;
+
+public class Player : MonoBehaviour
+{
+    [Header("Movement")]
+    private Rigidbody2D rb2D;
+    public float MoveSpeed;
+    public float HorizontalInput;
+    public float VerticalInput;
+
+    [Header("Animation")]
+    private Animator anim;
+    public Sprite Sprite;
+
+    [Header("Combat")]
+    public float PlayerHealth;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        rb2D = GetComponent<Rigidbody2D>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        HorizontalInput = Input.GetAxis("Horizontal");
+        rb2D.AddForce(Vector2.right * MoveSpeed * HorizontalInput);
+
+        VerticalInput = Input.GetAxis("Vertical");
+        rb2D.AddForce(Vector2.up * MoveSpeed * VerticalInput);
+    }
+}
