@@ -13,8 +13,8 @@ public class Player : MonoBehaviour
     private Animator anim;
     public Sprite Sprite;
 
-    [Header("Combat")]
-    public float PlayerHealth;
+    //[Header("Combat")]
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
