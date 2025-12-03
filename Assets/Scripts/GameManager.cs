@@ -14,12 +14,13 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Health = MaxHealth;
+        GameOverDisplay.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateHealth();
+      
     }
 
     public void UpdateHealth()
@@ -36,5 +37,14 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
          GameOverDisplay.SetActive(true);
+    }
+
+    public void PlayerDeath()
+    {
+        LoseHealth();
+        if (Health < 0)
+        {
+            GameOver();
+        }
     }
 }

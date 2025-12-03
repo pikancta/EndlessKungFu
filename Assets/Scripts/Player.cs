@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb2D;
     public float MoveSpeed;
     public float HorizontalInput;
-    public float VerticalInput;
+    public float JumpForce;
 
     [Header("Animation")]
     private Animator anim;
@@ -28,7 +28,11 @@ public class Player : MonoBehaviour
         HorizontalInput = Input.GetAxis("Horizontal");
         rb2D.AddForce(Vector2.right * MoveSpeed * HorizontalInput);
 
-        VerticalInput = Input.GetAxis("Vertical");
-        rb2D.AddForce(Vector2.up * MoveSpeed * VerticalInput);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+          rb2D.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
+        }
+            
     }
 }
