@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     public void PlayerDeath()
     {
         LoseHealth();
-        if (Health < 0)
+        if (Health < 1)
         {
             GameOver();
         }
