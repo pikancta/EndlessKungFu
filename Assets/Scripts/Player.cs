@@ -1,3 +1,5 @@
+using JetBrains.Annotations;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,31 +10,81 @@ public class Player : MonoBehaviour
     public float MoveSpeed;
     public float HorizontalInput;
     public float JumpForce;
+    public bool isGrounded;
 
     [Header("Animation")]
     private Animator anim;
     public Sprite Sprite;
-
-    //[Header("Combat")]
+    public bool facingRight = true;
     
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [Header("Combat")]
+    [SerializeField] private GameObject punch;
+
+
+    
+    
     void Start()
     {
-        rb2D = GetComponent<Rigidbody2D>();
+        rb2D = GetComponent<Rigidbody2D>(); 
     }
+    public void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 Scale = transform.localScale;
+        Scale.x *= -1;
+        transform.localScale = Scale;
+    }
+    public void faceDirection()
+    {
+        if (HorizontalInput > 0 && !facingRight)
+        {
+            Flip();
+        }
+        else if (HorizontalInput < 0 && facingRight)
+        {
+            Flip();
+        }
+    }
+    
 
     // Update is called once per frame
     void Update()
     {
+        // Combat
+        if (Input.GetButtonDown("Punch"))
+        {
+            StartCoroutine(PunchRoutine());
+            Debug.Log("Punch!");
+        }
+
+
+        // Movement
         HorizontalInput = Input.GetAxis("Horizontal");
         rb2D.AddForce(Vector2.right * MoveSpeed * HorizontalInput);
+        faceDirection();
 
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        // Jumping
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
           rb2D.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
+          isGrounded = false;
         }
             
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
+
+    IEnumerator PunchRoutine()
+    {
+        punch.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        punch.SetActive(false);
     }
 }

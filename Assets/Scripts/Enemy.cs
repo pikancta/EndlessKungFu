@@ -20,7 +20,6 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         Vector3 lookDirection = (player.transform.position - transform.position).normalized;
-
         rb2d.AddForce(lookDirection * speed);
     }
 
