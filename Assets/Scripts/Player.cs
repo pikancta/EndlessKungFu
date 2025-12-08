@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public float HorizontalInput;
     public float JumpForce;
     public bool isGrounded;
+    public bool GameOn = true;
 
     [Header("Animation")]
     private Animator anim;
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>(); 
+        GameOn = true;
     }
     public void Flip()
     {
@@ -52,7 +54,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         // Combat
-        if (Input.GetButtonDown("Punch"))
+        if (Input.GetButtonDown("Punch") && GameOn == true)
         {
             StartCoroutine(PunchRoutine());
             Debug.Log("Punch!");
@@ -60,13 +62,17 @@ public class Player : MonoBehaviour
 
 
         // Movement
-        HorizontalInput = Input.GetAxis("Horizontal");
-        rb2D.AddForce(Vector2.right * MoveSpeed * HorizontalInput);
-        faceDirection();
+       if (GameOn == true)
+       {
+            HorizontalInput = Input.GetAxis("Horizontal");
+            rb2D.AddForce(Vector2.right * MoveSpeed * HorizontalInput);
+            faceDirection();
+       }
+        
 
 
         // Jumping
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded && GameOn == true)
         {
           rb2D.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
           isGrounded = false;

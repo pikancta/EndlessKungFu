@@ -806,7 +806,7 @@ GameObject:
   - component: {fileID: 655251604}
   m_Layer: 0
   m_Name: punch
-  m_TagString: Untagged
+  m_TagString: Punch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1289,7 +1289,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: '
+  m_text: 'Score: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1518,8 +1518,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 10
   MaxHealth: 10
+  score: 0
   HealthDisplay: {fileID: 361534088}
+  ScoreDisplay: {fileID: 0}
   GameOverDisplay: {fileID: 383461849}
+  Pr: {fileID: 1991046421}
 --- !u!1 &1733588452 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8782255943216794555, guid: fd67980d4014db14cb84f83126577d4a, type: 3}
@@ -1794,6 +1797,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7333698390480633327, guid: 917a602d20266be4794401e029210f4c, type: 3}
   m_PrefabInstance: {fileID: 1991046413}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1991046421 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7531822698055325257, guid: 917a602d20266be4794401e029210f4c, type: 3}
+  m_PrefabInstance: {fileID: 1991046413}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991046414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8360062f1f9f37b448c34baa017a6b45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7688488300447381213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1845,6 +1859,10 @@ PrefabInstance:
     - target: {fileID: 5859338389734406958, guid: fd67980d4014db14cb84f83126577d4a, type: 3}
       propertyPath: speed
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859338389734406958, guid: fd67980d4014db14cb84f83126577d4a, type: 3}
+      propertyPath: MaxEHealth
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5859338389734406958, guid: fd67980d4014db14cb84f83126577d4a, type: 3}
       propertyPath: ScoreValue
