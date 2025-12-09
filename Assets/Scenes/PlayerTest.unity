@@ -181,12 +181,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.48737466, g: 0.8679245, b: 0.46262014, a: 1}
+  m_Sprite: {fileID: 2309469691469421189, guid: 27ef9ef8f58fae3409ddfc0fa60756f1, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_DrawMode: 2
+  m_Size: {x: 8.996184, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -201,8 +201,8 @@ Transform:
   m_GameObject: {fileID: 212645325}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -4.46, z: 0}
-  m_LocalScale: {x: 24.894339, y: 1, z: 1}
+  m_LocalPosition: {x: -99.3574, y: -4.616, z: 0}
+  m_LocalScale: {x: 24.85384, y: 1.1704601, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -241,17 +241,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0028152466, y: -0.012013316}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 21, y: 0.60498047}
+    newSize: {x: 8.996184, y: 1}
     adaptiveTilingThreshold: 0.5
-    drawMode: 0
+    drawMode: 2
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 8.995869, y: 1.0761125}
   m_EdgeRadius: 0
 --- !u!1 &361534086
 GameObject:
@@ -653,7 +653,7 @@ Transform:
   m_GameObject: {fileID: 540610789}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.96, y: 0.16, z: 0}
+  m_LocalPosition: {x: -210.58, y: 0.16, z: 0}
   m_LocalScale: {x: 1, y: 9.721251, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -724,8 +724,8 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 8, y: 8}
+  m_DrawMode: 2
+  m_Size: {x: 72.0927, y: 10.502533}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -740,7 +740,7 @@ Transform:
   m_GameObject: {fileID: 627813352}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0743, y: 0.081, z: 0}
+  m_LocalPosition: {x: -99.3621, y: 1.6483, z: 0}
   m_LocalScale: {x: 3.1003978, y: 1.2526, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -966,12 +966,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266661991}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.57, y: 2.94, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1991046420}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1266661995
 MonoBehaviour:
@@ -1530,7 +1530,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7333698390480633327, guid: 917a602d20266be4794401e029210f4c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1266661994}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6805108330183669034, guid: 917a602d20266be4794401e029210f4c, type: 3}
       insertIndex: -1
@@ -1563,6 +1566,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!4 &1991046420 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7333698390480633327, guid: 917a602d20266be4794401e029210f4c, type: 3}
+  m_PrefabInstance: {fileID: 1991046413}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7688488300447381213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1642,7 +1650,6 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1266661994}
   - {fileID: 212645327}
   - {fileID: 1991046413}
   - {fileID: 1681491823}

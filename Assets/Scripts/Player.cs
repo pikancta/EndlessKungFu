@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         HorizontalInput = Input.GetAxis("Horizontal");
-        rb2D.AddForce(Vector2.right * MoveSpeed * HorizontalInput);
+        rb2D.AddForce(Vector2.right * MoveSpeed * HorizontalInput * Time.deltaTime);
 
 
         if (Input.GetKeyDown(KeyCode.Space))
