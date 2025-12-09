@@ -57,7 +57,6 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Punch") && GameOn == true)
         {
             StartCoroutine(PunchRoutine());
-            Debug.Log("Punch!");
         }
 
 
