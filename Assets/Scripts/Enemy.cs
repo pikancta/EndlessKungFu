@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     {
         Vector3 lookDirection = (player.transform.position - transform.position).normalized;
 
-        rb2d.AddForce(lookDirection * speed *  Time.deltaTime);
+        rb2d.AddForce(lookDirection * speed);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
