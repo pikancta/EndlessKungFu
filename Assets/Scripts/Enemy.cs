@@ -30,36 +30,32 @@ public class Enemy : MonoBehaviour
             Vector3 lookDirection = (Pr.transform.position - transform.position).normalized;
             rb2d.AddForce(lookDirection * speed);
         }
-        
+        if (EHealth < 1)
+        {
+            Death();
+        }
     }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             gm.PlayerDeath();
         }
-        else if (collision.gameObject.CompareTag("Punch"))
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+         if (collision.gameObject.CompareTag("Punch"))
         {
             LoseEHealth();
         }
     }
-
     public void LoseEHealth()
     {
         EHealth--;
     }
-
     public void Death()
     {
         gm.AddScore(ScoreValue);
         Destroy(gameObject);
     }
-
-    public void EDeath()
-    {
-        if (EHealth < 1) 
-        Death();
-    }
-
 }

@@ -1520,7 +1520,7 @@ MonoBehaviour:
   MaxHealth: 10
   score: 0
   HealthDisplay: {fileID: 361534088}
-  ScoreDisplay: {fileID: 0}
+  ScoreDisplay: {fileID: 1382682676}
   GameOverDisplay: {fileID: 383461849}
   Pr: {fileID: 1991046421}
 --- !u!1 &1733588452 stripped
