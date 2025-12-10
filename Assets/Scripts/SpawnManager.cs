@@ -13,13 +13,19 @@ public class SpawnManager : MonoBehaviour
     public float spawnIntervalMin = 1f;
     public float spawnIntervalMax = 2f;
     private float nextSpawnTime;
+    public Player Prs;
     void Start()
     {
+        Prs = GameObject.Find("Player").GetComponent<Player>();
         SetNextSpawnTime();
     }
     void Update()
     {
-        if (Time.time >= nextSpawnTime)
+        if (!Prs.GameOn)
+        {
+            return;
+        }
+        if (Time.time >= nextSpawnTime && Prs.GameOn)
         {
             SpawnEnemy();
             SetNextSpawnTime();

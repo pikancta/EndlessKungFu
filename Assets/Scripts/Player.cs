@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public float JumpForce;
     public bool isGrounded;
     public bool GameOn = true;
+    private GameManager gm;
 
     [Header("Animation")]
     private Animator anim;
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour
     
     void Start()
     {
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         rb2D = GetComponent<Rigidbody2D>(); 
         GameOn = true;
     }
@@ -68,8 +70,6 @@ public class Player : MonoBehaviour
             faceDirection();
        }
         
-
-
         // Jumping
         if (Input.GetButtonDown("Jump") && isGrounded && GameOn == true)
         {
@@ -80,6 +80,7 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //check if player is grounded
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;

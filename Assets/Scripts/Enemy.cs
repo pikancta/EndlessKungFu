@@ -1,4 +1,5 @@
-using Unity.VisualScripting;
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -11,8 +12,9 @@ public class Enemy : MonoBehaviour
     private GameObject Pr;
     public float speed;
     public Player Prs;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [Header("Combat")]
+    [SerializeField] private GameObject punch;
+    [SerializeField] private float punchDelay;
     void Start()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -21,14 +23,24 @@ public class Enemy : MonoBehaviour
         Prs = GameObject.Find("Player").GetComponent<Player>();
         EHealth = MaxEHealth;
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (Prs.GameOn == true)
         {
             Vector3 lookDirection = (Pr.transform.position - transform.position).normalized;
             rb2d.AddForce(lookDirection * speed);
+            if(lookDirection.x < 0 && transform.localScale.x > 0)
+            {
+                Vector3 Scale = transform.localScale;
+                Scale.x *= -1;
+                transform.localScale = Scale;
+            }
+            else if (lookDirection.x > 0 && transform.localScale.x < 0)
+            {
+                Vector3 Scale = transform.localScale;
+                Scale.x *= -1;
+                transform.localScale = Scale;
+            }
         }
         if (EHealth < 1)
         {
@@ -39,7 +51,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            gm.PlayerDeath();
+            StartCoroutine(PunchRoutine());
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -57,5 +69,12 @@ public class Enemy : MonoBehaviour
     {
         gm.AddScore(ScoreValue);
         Destroy(gameObject);
+    }
+    IEnumerator PunchRoutine()
+    {
+        punch.SetActive(true);
+        yield return new WaitForSeconds(.5f);
+        punch.SetActive(false);
+        yield return new WaitForSeconds(punchDelay);
     }
 }
