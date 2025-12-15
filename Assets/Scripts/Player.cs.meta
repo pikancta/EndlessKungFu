@@ -1,2 +1,17 @@
 fileFormatVersion: 2
 guid: 8360062f1f9f37b448c34baa017a6b45
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Sprite: {instanceID: 0}
+  - punch: {instanceID: 0}
+  - As: {instanceID: 0}
+  - walk: {fileID: 8300000, guid: 60a0e58490cfdaf438eabaafba1d8cb7, type: 3}
+  - Swing: {fileID: 8300000, guid: bdc5def581fa0f4469301b75ed8aab38, type: 3}
+  - Punch: {fileID: 8300000, guid: 745befb451031594ea3b20ee387e38c0, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

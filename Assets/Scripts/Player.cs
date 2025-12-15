@@ -23,13 +23,20 @@ public class Player : MonoBehaviour
     [Header("Combat")]
     [SerializeField] private GameObject punch;
 
+    [Header("Audio")]
+    public AudioSource As;
+    public AudioClip walk;
+    public AudioClip Swing;
+    public AudioClip Punch;
+    public bool audioLength;
 
-    
-    
+
     void Start()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        rb2D = GetComponent<Rigidbody2D>(); 
+        rb2D = GetComponent<Rigidbody2D>();
+        As = GetComponent<AudioSource>();
+        audioLength = false;
         GameOn = true;
     }
     public void Flip()
@@ -53,7 +60,7 @@ public class Player : MonoBehaviour
     
 
     // Update is called once per frame
-    void Update()
+    void Update()  
     {
         // Combat
         if (Input.GetButtonDown("Punch") && GameOn == true)
@@ -76,7 +83,19 @@ public class Player : MonoBehaviour
           rb2D.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
           isGrounded = false;
         }
-            
+
+        // Player Walk Sound
+        if (HorizontalInput >= 0.1 && audioLength == false)
+        {
+            As.PlayOneShot(walk);
+            audioLength = true;
+        }
+        else if (HorizontalInput <= -0.1 && audioLength == false)
+        {
+            As.PlayOneShot(walk);
+            audioLength = true;
+        }
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -90,7 +109,10 @@ public class Player : MonoBehaviour
     IEnumerator PunchRoutine()
     {
         punch.SetActive(true);
+        As.PlayOneShot(Swing);
+        audioLength = true;
         yield return new WaitForSeconds(0.1f);
         punch.SetActive(false);
+        audioLength = false;
     }
 }

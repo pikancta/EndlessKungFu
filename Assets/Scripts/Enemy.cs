@@ -1,17 +1,27 @@
 using System;
 using System.Collections;
+using System.Net.NetworkInformation;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Score")]
     public int ScoreValue;
+
+    [Header("Generalistics")]
     public int EHealth;
     public int MaxEHealth;
     private GameManager gm;
     private Rigidbody2D rb2d;
+    public AudioSource As;
+    public AudioClip Punch;
+    public bool audioLength;
+
+    [Header("Movement")]
     private GameObject Pr;
     public float speed;
     public Player Prs;
+
     [Header("Combat")]
     [SerializeField] private GameObject punch;
     [SerializeField] private float punchDelay;
@@ -19,6 +29,8 @@ public class Enemy : MonoBehaviour
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         rb2d = GetComponent<Rigidbody2D>();
+        As = GetComponent<AudioSource>();
+        audioLength = false;
         Pr = GameObject.Find("Player");
         Prs = GameObject.Find("Player").GetComponent<Player>();
         EHealth = MaxEHealth;
@@ -57,9 +69,10 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
          if (collision.gameObject.CompareTag("Punch"))
-        {
+         {
+            As.PlayOneShot(Punch);
             LoseEHealth();
-        }
+         }
     }
     public void LoseEHealth()
     {
@@ -73,7 +86,10 @@ public class Enemy : MonoBehaviour
     IEnumerator PunchRoutine()
     {
         punch.SetActive(true);
+        As.PlayOneShot(Punch);
+        audioLength = true;
         yield return new WaitForSeconds(.5f);
+        audioLength = false;
         punch.SetActive(false);
         yield return new WaitForSeconds(punchDelay);
     }
