@@ -72,6 +72,7 @@ public class Player : MonoBehaviour
         // Movement
        if (GameOn == true)
        {
+
             HorizontalInput = Input.GetAxis("Horizontal");
             rb2D.AddForce(Vector2.right * MoveSpeed * HorizontalInput);
             faceDirection();
