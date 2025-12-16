@@ -86,15 +86,20 @@ public class Player : MonoBehaviour
         }
 
         // Player Walk Sound
-        if (HorizontalInput >= 0.1 && audioLength == false)
+        if (HorizontalInput >= 0.1 && !As.isPlaying)
         {
             As.PlayOneShot(walk);
             audioLength = true;
         }
-        else if (HorizontalInput <= -0.1 && audioLength == false)
+        else if (HorizontalInput <= -0.1 && !As.isPlaying)
         {
             As.PlayOneShot(walk);
             audioLength = true;
+        }
+        else if (HorizontalInput == 0f && audioLength)
+        {
+            As.Stop();
+            audioLength = false;
         }
 
     }

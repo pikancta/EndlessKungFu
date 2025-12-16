@@ -40,8 +40,8 @@ public class Enemy : MonoBehaviour
         if (Prs.GameOn == true)
         {
             Vector3 lookDirection = (Pr.transform.position - transform.position).normalized;
-            rb2d.AddForce(lookDirection * speed);
-            if(lookDirection.x < 0 && transform.localScale.x > 0)
+            transform.position += lookDirection * speed * Time.deltaTime;
+            if (lookDirection.x < 0 && transform.localScale.x > 0)
             {
                 Vector3 Scale = transform.localScale;
                 Scale.x *= -1;

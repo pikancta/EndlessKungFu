@@ -257,7 +257,7 @@ MonoBehaviour:
   As: {fileID: 0}
   Punch: {fileID: 8300000, guid: 745befb451031594ea3b20ee387e38c0, type: 3}
   audioLength: 0
-  speed: 0.5
+  speed: 2
   Prs: {fileID: 0}
   punch: {fileID: 7199282253408787971}
   punchDelay: 2.5
@@ -287,7 +287,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &8838571325455758308
 CircleCollider2D:
   m_ObjectHideFlags: 0
