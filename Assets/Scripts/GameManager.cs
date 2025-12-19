@@ -18,7 +18,11 @@ public class GameManager : MonoBehaviour
     {
         Pr = GameObject.Find("Player").GetComponent<Player>();
         Health = MaxHealth;
-        GameOverDisplay.SetActive(false);
+
+        if (GameOverDisplay != null)
+        {
+            GameOverDisplay.SetActive(false);
+        }
         score = 0;
     }
 

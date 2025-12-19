@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     private Animator anim;
     public Sprite Sprite;
     public bool facingRight = true;
+
+ 
     
 
     [Header("Combat")]
@@ -38,6 +40,7 @@ public class Player : MonoBehaviour
         As = GetComponent<AudioSource>();
         audioLength = false;
         GameOn = true;
+        anim = GetComponent<Animator>();
     }
     public void Flip()
     {
@@ -76,6 +79,11 @@ public class Player : MonoBehaviour
             HorizontalInput = Input.GetAxis("Horizontal");
             rb2D.AddForce(Vector2.right * MoveSpeed * HorizontalInput);
             faceDirection();
+
+            //talk to the animator
+            anim.SetFloat("horizontalInput", HorizontalInput);
+            anim.SetBool("isAttacking", Punch);
+            anim.SetBool("isDead", );
        }
         
         // Jumping
